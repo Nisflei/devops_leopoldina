@@ -1,9 +1,662 @@
+```html
 <!DOCTYPE html>
-<header>
-</header>
-<body> 
-    <center>
-    <h1> Usando projeto na Turma B - novo status</h1>
-    <h1> novo conteudo para manutenção</h1>
-    </center>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Revolução Constitucionalista de 1932</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f1eb;
+            color: #292929;
+            line-height: 1.7;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background: linear-gradient(
+                rgba(40, 25, 15, 0.82),
+                rgba(40, 25, 15, 0.82)
+            ),
+            url("https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .data {
+            margin-top: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #e7c98a;
+        }
+
+        /* MENU */
+        nav {
+            background-color: #171717;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 17px 22px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        nav li a:hover {
+            background-color: #8b1e1e;
+        }
+
+        /* CONTEÚDO */
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 25px;
+        }
+
+        section {
+            margin-bottom: 70px;
+        }
+
+        .titulo-secao {
+            color: #7d1d1d;
+            font-size: 34px;
+            margin-bottom: 20px;
+            border-left: 6px solid #c49a4a;
+            padding-left: 15px;
+        }
+
+        .introducao {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            font-size: 18px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 10px;
+            border-top: 5px solid #8b1e1e;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .card h3 {
+            color: #7d1d1d;
+            margin-bottom: 12px;
+        }
+
+        /* LINHA DO TEMPO */
+        .timeline {
+            border-left: 4px solid #8b1e1e;
+            margin: 35px 0;
+            padding-left: 30px;
+        }
+
+        .evento {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .evento::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #c49a4a;
+            border: 3px solid #8b1e1e;
+            border-radius: 50%;
+            left: -40px;
+            top: 28px;
+        }
+
+        .evento h3 {
+            color: #7d1d1d;
+            margin-bottom: 8px;
+        }
+
+        /* DESTAQUE */
+        .destaque {
+            background: linear-gradient(135deg, #7d1d1d, #451010);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .destaque h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        /* PERSONAGENS */
+        .personagens {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .personagem {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .personagem h3 {
+            color: #7d1d1d;
+            margin-bottom: 10px;
+        }
+
+        /* CURIOSIDADE */
+        .curiosidade {
+            background-color: #eee1c5;
+            border-left: 7px solid #c49a4a;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .curiosidade h3 {
+            color: #6d1919;
+            margin-bottom: 10px;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: #171717;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer strong {
+            color: #e7c98a;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 800px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .personagens {
+                grid-template-columns: 1fr;
+            }
+
+            nav li a {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="hero">
+            <h1>Revolução Constitucionalista</h1>
+
+            <p>
+                São Paulo, 1932: um movimento marcado pela defesa
+                de uma nova Constituição para o Brasil.
+            </p>
+
+            <div class="data">
+                9 de julho de 1932
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU -->
+    <nav>
+        <ul>
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#causas">Causas</a></li>
+            <li><a href="#movimento">Movimento</a></li>
+            <li><a href="#cronologia">Cronologia</a></li>
+            <li><a href="#consequencias">Consequências</a></li>
+            <li><a href="#legado">Legado</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- INTRODUÇÃO -->
+        <section>
+            <div class="introducao">
+                <h2 class="titulo-secao">O que foi?</h2>
+
+                <p>
+                    A Revolução Constitucionalista de 1932 foi um movimento
+                    político e militar ocorrido principalmente no estado de
+                    São Paulo contra o governo de Getúlio Vargas.
+                </p>
+
+                <p>
+                    O movimento defendia a convocação de uma Assembleia
+                    Constituinte e a elaboração de uma nova Constituição
+                    para o Brasil. Os paulistas também reivindicavam maior
+                    autonomia política para os estados.
+                </p>
+
+                <p>
+                    O conflito começou em <strong>9 de julho de 1932</strong>
+                    e terminou em outubro do mesmo ano, com a derrota militar
+                    das forças constitucionalistas.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTEXTO -->
+        <section id="contexto">
+
+            <h2 class="titulo-secao">Contexto histórico</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Revolução de 1930</h3>
+
+                    <p>
+                        Em 1930, Getúlio Vargas chegou ao poder após um
+                        movimento que derrubou o presidente Washington Luís
+                        e impediu a posse de Júlio Prestes.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Governo Provisório</h3>
+
+                    <p>
+                        Vargas assumiu um governo provisório e passou a
+                        governar sem uma Constituição federal vigente,
+                        dissolvendo o Congresso Nacional.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Insatisfação paulista</h3>
+
+                    <p>
+                        Parte da sociedade paulista passou a exigir eleições,
+                        uma nova Constituição e o retorno de instituições
+                        políticas consideradas fundamentais.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CAUSAS -->
+        <section id="causas">
+
+            <h2 class="titulo-secao">Principais causas</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Constituição</h3>
+                    <p>
+                        Uma das principais reivindicações era a convocação
+                        de uma Assembleia Constituinte para elaborar uma
+                        nova Constituição brasileira.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Eleições</h3>
+                    <p>
+                        Os constitucionalistas defendiam o retorno de
+                        eleições e de instituições representativas.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Autonomia estadual</h3>
+                    <p>
+                        Havia também críticas à centralização política
+                        promovida pelo governo Vargas e defesa de maior
+                        autonomia para os estados.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DESTAQUE -->
+        <div class="destaque">
+
+            <h2>9 de Julho de 1932</h2>
+
+            <p>
+                A data marca o início da Revolução Constitucionalista
+                em São Paulo e atualmente é celebrada como feriado
+                estadual em São Paulo.
+            </p>
+
+        </div>
+
+        <!-- MOVIMENTO -->
+        <section id="movimento">
+
+            <h2 class="titulo-secao">O movimento</h2>
+
+            <div class="introducao">
+
+                <p>
+                    O movimento reuniu diferentes setores da sociedade
+                    paulista. Civis e militares participaram da mobilização,
+                    enquanto campanhas buscavam arrecadar recursos e
+                    estimular a participação da população.
+                </p>
+
+                <p>
+                    Um dos símbolos da mobilização foi a sigla
+                    <strong>MMDC</strong>, formada a partir das iniciais
+                    dos nomes de quatro jovens que morreram em um confronto
+                    ocorrido em maio de 1932:
+                    Martins, Miragaia, Dráusio e Camargo.
+                </p>
+
+                <p>
+                    A partir de julho, tropas constitucionalistas
+                    enfrentaram forças federais e forças de outros estados
+                    que apoiavam o governo Vargas.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- CRONOLOGIA -->
+        <section id="cronologia">
+
+            <h2 class="titulo-secao">Linha do tempo</h2>
+
+            <div class="timeline">
+
+                <div class="evento">
+                    <h3>1930 — Revolução de 1930</h3>
+
+                    <p>
+                        Getúlio Vargas assume o governo após a deposição
+                        de Washington Luís.
+                    </p>
+                </div>
+
+                <div class="evento">
+                    <h3>1932 — Crescimento das manifestações</h3>
+
+                    <p>
+                        A pressão por uma Constituição e por eleições
+                        aumenta em diferentes setores da sociedade.
+                    </p>
+                </div>
+
+                <div class="evento">
+                    <h3>9 de julho de 1932</h3>
+
+                    <p>
+                        Tem início a Revolução Constitucionalista
+                        em São Paulo.
+                    </p>
+                </div>
+
+                <div class="evento">
+                    <h3>Outubro de 1932</h3>
+
+                    <p>
+                        As forças constitucionalistas se rendem,
+                        encerrando o conflito armado.
+                    </p>
+                </div>
+
+                <div class="evento">
+                    <h3>1933 — Assembleia Constituinte</h3>
+
+                    <p>
+                        O governo Vargas convoca eleições para uma
+                        Assembleia Nacional Constituinte.
+                    </p>
+                </div>
+
+                <div class="evento">
+                    <h3>1934 — Nova Constituição</h3>
+
+                    <p>
+                        É promulgada uma nova Constituição brasileira.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PERSONAGENS -->
+        <section>
+
+            <h2 class="titulo-secao">Personagens e grupos importantes</h2>
+
+            <div class="personagens">
+
+                <div class="personagem">
+                    <h3>Getúlio Vargas</h3>
+
+                    <p>
+                        Presidente do Governo Provisório e principal
+                        autoridade contra a qual o movimento
+                        constitucionalista se posicionou.
+                    </p>
+                </div>
+
+                <div class="personagem">
+                    <h3>Pedro de Toledo</h3>
+
+                    <p>
+                        Foi nomeado governador de São Paulo durante
+                        o movimento e tornou-se uma das principais
+                        figuras políticas dos constitucionalistas.
+                    </p>
+                </div>
+
+                <div class="personagem">
+                    <h3>Martins, Miragaia, Dráusio e Camargo</h3>
+
+                    <p>
+                        Os quatro jovens mortos em maio de 1932 deram
+                        origem à sigla MMDC, que se tornou um dos
+                        principais símbolos do movimento.
+                    </p>
+                </div>
+
+                <div class="personagem">
+                    <h3>Sociedade paulista</h3>
+
+                    <p>
+                        Diferentes grupos sociais participaram da
+                        mobilização, incluindo estudantes, trabalhadores,
+                        empresários e voluntários.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONSEQUÊNCIAS -->
+        <section id="consequencias">
+
+            <h2 class="titulo-secao">Consequências</h2>
+
+            <div class="introducao">
+
+                <p>
+                    Militarmente, o movimento terminou com a derrota das
+                    forças constitucionalistas. Entretanto, a pressão
+                    política contribuiu para que o governo avançasse
+                    no processo de convocação de uma Assembleia
+                    Constituinte.
+                </p>
+
+                <p>
+                    Em 1933 foram realizadas eleições para a Assembleia
+                    Nacional Constituinte e, em 1934, foi promulgada uma
+                    nova Constituição brasileira.
+                </p>
+
+                <p>
+                    Dessa forma, embora o movimento paulista não tenha
+                    alcançado seus objetivos militares, seus acontecimentos
+                    fizeram parte do processo político que levou à
+                    Constituição de 1934.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- CURIOSIDADE -->
+        <section>
+
+            <div class="curiosidade">
+
+                <h3>💡 Você sabia?</h3>
+
+                <p>
+                    O número <strong>MMDC</strong> tornou-se um dos
+                    símbolos mais conhecidos da Revolução Constitucionalista.
+                    A sigla foi formada pelas iniciais dos quatro jovens
+                    mortos durante manifestações em São Paulo em 1932.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- LEGADO -->
+        <section id="legado">
+
+            <h2 class="titulo-secao">Memória e legado</h2>
+
+            <div class="introducao">
+
+                <p>
+                    O movimento de 1932 ocupa um lugar importante na
+                    memória histórica de São Paulo. O dia <strong>9 de julho</strong>
+                    é feriado estadual e diferentes monumentos, museus
+                    e espaços públicos preservam documentos e objetos
+                    relacionados ao período.
+                </p>
+
+                <p>
+                    O estudo da Revolução Constitucionalista permite
+                    compreender um momento de grandes transformações
+                    políticas no Brasil e discutir temas como
+                    constitucionalismo, representação política,
+                    federalismo e participação social.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            <strong>Revolução Constitucionalista de 1932</strong>
+        </p>
+
+        <p>
+            Página educativa — História do Brasil
+        </p>
+
+        <p>
+            © 2026 — Projeto Educacional
+        </p>
+
+    </footer>
+
 </body>
+</html>
+```
+
