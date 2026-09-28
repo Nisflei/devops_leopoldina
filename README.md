@@ -1,4 +1,4 @@
-🚀 DevOps TB
+🚀 DevOps 
 
 Projeto desenvolvido para estudos e práticas de DevOps, versionamento de código e manutenção de aplicações utilizando Git e GitHub.
 
@@ -13,7 +13,7 @@ HTML5
 Git
 GitHub
 📁 Estrutura do projeto
-devops_tb/
+devops_leopoldina/
 ├── .github/
 │   └── pull_request_template.md
 ├── index.html
@@ -21,10 +21,10 @@ devops_tb/
 
 ▶️ Como executar o projeto
 1. Clone o repositório
-git clone https://github.com/Nisflei/devops_tb.git
+git clone https://github.com/Nisflei/devops_leopoldina.git
 
 2. Acesse a pasta do projeto
-cd devops_tb
+cd devops_leopoldina
 
 3. Execute o projeto
 
@@ -101,5 +101,5 @@ O template tem como objetivo padronizar as informações apresentadas durante o 
 
 Este projeto é destinado a fins educacionais e de estudo.
 
-Projeto: devops_tb
-GitHub: https://github.com/Nisflei/devops_tb
+Projeto: devops_leopoldina
+GitHub: https://github.com/Nisflei/devops_leopoldina
